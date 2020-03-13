@@ -1,0 +1,375 @@
+<%layout('layout2') %>
+<style media="screen">
+  *{
+  margin: 0;
+  padding: 0;
+  font-family: "montserrat",sans-serif;
+  box-sizing: border-box;
+}
+
+.gallery-section{
+  width: 100%;
+  padding: 60px 0;
+  background: #f1f1f1;
+}
+
+.inner-width{
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.gallery-section h1{
+  text-align: center;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.border{
+  width: 180px;
+  height: 4px;
+  background: #333;
+  margin: 60px auto;
+}
+
+.gallery-section .gallery{
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+}
+
+.gallery-section .image{
+  flex: 25%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.gallery-section .image img{
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+}
+
+.gallery-section .image:hover img{
+  transform: scale(1.4) rotate(15deg);
+}
+
+@media screen and (max-width:960px) {
+  .gallery-section .image{
+    flex: 33.33%;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .gallery-section .image{
+    flex: 50%;
+  }
+}
+
+@media screen and (max-width:480px) {
+  .gallery-section .image{
+    flex: 100%;
+  }
+}
+
+</style>
+<div id="wrapper">
+
+  <% include ../partials/sidebar %>
+
+  <div id="page-content-wrapper">
+
+      <% include ../partials/navbar %>
+      <div class="container-fluid main_body">
+
+        <div class="ul_links">
+          <ul>
+            <li ><a  href="/home">Home</a></li> |
+            <li ><a  href="/companies">Company</a></li>|
+            <li ><a  href="">Company Profile</a></li>
+              <!-- <li ><a  href="/delete/:id">Delete</a></li> -->
+          </ul>
+        </div>
+
+        <div class="bodyDiv">
+          <h4 style="">Company Profile</h4>
+          <%if(messages.success10){%>
+            <div class="success alert alert-success text-center success101">
+            <%=messages.success10%>
+            </div>
+          <%}%>
+
+          <%if(messages.error10){%>
+            <div class="danger alert alert-danger text-center danger10">
+            <%=messages.error10%>
+            </div>
+          <%}%>
+          <div class="row mainDiv">
+            <div class="innerDiv">
+              <div class="col-md-3" style="margin-bottom:30px;">
+                <img src="/uploads/<%=data.image%>" width="270px"height="270px" alt="">
+                <h3><%=data.name%></h3>
+                <a href="<%=data.address%>" target="_blank"><i class="fa fa-map-marker"><%=data.city%>, <%=data.country%></i></a><br>
+                <i class="fa fa-building-o"><%=data.sector%></i><br>
+                <i class="fa fa-external-link"><a href="<%=data.website%>" target="_blank"><%=data.website%></a></i><br><br>
+
+
+
+<%if(user.company.name != data.name){ %>
+  <h2>Register as member to Rate us</h2>
+<% }else{%>
+  <a href="/review/<%=data._id%>" class="btn btn-success">Rate this company</a><br><br>
+<% }%>
+
+                <a href="/<%=data.name%>/employees" class="btn btn-info">View Company Members</a><br><br>
+                <%if(user.company.name != data.name){ %>
+                  <a href="/register-employee/<%=id%>" class="btn btn-primary">Register me as a Member</a><br><br>
+                <% }else{%>
+                  <h2>You are a member</h2>
+                <% }%>
+                <h3>Average Rating</h3>
+                <h5 class="star" data-score="<%=average%>"></h5>
+                <p>Based on <%=data.ratingNumber.length%> review(s)</p>
+              </div>
+              <div class="col-md-9 colDiv">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="count">
+                      <h1><%=data.ratingNumber.length%></h1>
+                      <h2>Ratings</h2>
+                      <h3>Total ratings received</h3>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="count">
+                      <h1><%=data.ratingSum%></h1>
+                      <h2>Total Stars</h2>
+                      <h3>Total Stars received</h3>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="count">
+                      <h1><span class="star" data-score="<%=average%>"></span></h1>
+                      <h2>Average Rating (<%=average%>)</h2>
+                      <h3>Based on <%=data.ratingNumber.length%> review(s)</h3>
+                    </div>
+                  </div><br><br>
+                  <div class="col-md-12 header">
+                    <h2>Reviews(<%=data.ratingNumber.length%>)</h2>
+                    <%if(user.company.name == data.name){ %>
+                      <div class="linkDiv">
+                        <a href="/review/<%=data._id%>" class="btn btn-success">
+                          Write Review</a>
+                      </div>
+                    <% }%>
+
+                  </div><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+                  <!-- <form  action="" method="post">
+                <div class="form-group ">
+                      <label for="">Menu</label><br>
+
+                      <button class="btn btn-lg" type="button" data-toggle="modal" data-target="#file">Images</button>
+                      <span id="completed"></span>
+
+                      <div id="file" class="modal" tabindex="-1" role="dialog">
+                          <div class="modal-dialog">
+                              <div class="modal-content">
+                                  <div class="modal-header">
+                                      <button type="button" id="close" class="close" data-dismiss="modal">&times;</button>
+                                      <div class="modal-title">Upload Image</div>
+                                  </div>
+
+                                  <div class="modal-body">
+                                      <div class="row">
+                                          <div class="progress">
+                                              <div class="progress-bar" role="progressbar"></div>
+                                          </div>
+
+                                          <button class="btn btn-lg upload-btn" type="button">Upload File</button>
+                                          <input type="file" class="form-control" name="upload" id="upload-input" style="display:none">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+
+
+                  <div class="form-group">
+                    <input type="submit" id="Add" class=" btn btn-primary" value="Add Image">
+                  </div>
+                </form>
+                
+                  <div class="gallery-section">
+                    <div class="inner-width">
+                      <h1>Menu</h1>
+                      <div class="border"></div>
+                      <div class="gallery">
+
+                        <%data.menus.forEach(function(val){%>
+
+
+
+
+                        <a href="/uploads/<%=val.menuImages%>" class="image">
+                          <img src="/uploads/<%=val.menuImages%>" alt="">
+                        </a>
+                        <%});%>
+                      </div>
+                    </div>
+                  </div>
+                  <script>
+                    $(".gallery").magnificPopup({
+                      delegate: 'a',
+                      type: 'image',
+                      gallery:{
+                        enabled: true
+                      }
+                    });
+                  </script>
+                  <br><br><br><br>
+                  <h1>reviews</h1>
+                  <%if(data.companyRating.length>0){%>
+                    <%data.companyRating.forEach(function(val){%>
+                      <div class="col-md-12 reviewDiv">
+                        <div class="col-md-2">
+                          <img src="/uploads/<%=val.companyImage%>"width="100"height="100">
+                        </div>
+                        <div class="col-md-8">
+                          <h1><a href="#"><%=val.companyName%></a> <%=val.userFullname%></h1>
+                          <h2><%=val.userRole%></h2>
+                          <p><%=val.userReview%></p>
+                        </div>
+                        <div class="col-md-2"style="width:150px;">
+                          <h1>Rating</h1>
+                          <span class="star" data-score="<%=val.userRating%>"></span>
+                        </div>
+                      </div>
+                      <%});%>
+                    <%}%> -->
+
+
+                   <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+                    <a class="nav-link active btn btn-default" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">reviews</a>
+                    <a class="nav-link  btn btn-default" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Menu</a>
+
+                  </div>
+                  <br><br>
+                      <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-pane fade active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                          <%if(data.companyRating.length>0){%>
+                            <%data.companyRating.forEach(function(val){%>
+                              <div class="col-md-12 reviewDiv">
+                                <div class="col-md-2">
+                                  <img src="/uploads/<%=val.companyImage%>"width="100"height="100">
+                                </div>
+                                <div class="col-md-8">
+                                  <h1><a href="#"><%=val.companyName%></a> <%=val.userFullname%></h1>
+                                  <h2><%=val.userRole%></h2>
+                                  <p><%=val.userReview%></p>
+                                </div>
+                                <div class="col-md-2"style="width:150px;">
+                                  <h1>Rating</h1>
+                                  <span class="star" data-score="<%=val.userRating%>"></span>
+                                </div>
+                              </div>
+                              <%});%>
+                            <%}%>
+                        </div>
+
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                            <%if(user.isAdmin==='true'){%>
+                            <form  action="" method="post">
+                          <div class="form-group ">
+                                <label for="">Menu</label><br>
+
+                                <button class="btn btn-lg" type="button" data-toggle="modal" data-target="#file">Images</button>
+                                <span id="completed"></span>
+
+                                <div id="file" class="modal" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" id="close" class="close" data-dismiss="modal">&times;</button>
+                                                <div class="modal-title">Upload Image</div>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="progress">
+                                                        <div class="progress-bar" role="progressbar"></div>
+                                                    </div>
+
+                                                    <button class="btn btn-lg upload-btn" type="button">Upload File</button>
+                                                    <input type="file" class="form-control" name="upload" id="upload-input" style="display:none">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+                              <input type="submit" id="Add" class=" btn btn-primary" value="Add Image">
+                            </div>
+                          </form>
+                            <%}%>
+
+                                 <div class="gallery-section">
+                                   <div class="inner-width">
+                                     <h1>My Gallery</h1>
+                                     <div class="border"></div>
+                                     <div class="gallery">
+
+                                       <%data.menus.forEach(function(val){%>
+
+
+
+
+                                       <a href="/uploads/<%=val.menuImages%>" class="image">
+                                         <img src="/uploads/<%=val.menuImages%>" alt="">
+                                       </a>
+                                       <%});%>
+                                     </div>
+                                   </div>
+                                 </div>
+
+
+                               <script>
+                                 $(".gallery").magnificPopup({
+                                   delegate: 'a',
+                                   type: 'image',
+                                   gallery:{
+                                     enabled: true
+                                   }
+                                 });
+                               </script>
+
+                        </div>
+
+                      </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <% include ../partials/footer %>
+  </div>
+</div>

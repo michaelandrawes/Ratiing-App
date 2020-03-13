@@ -1,0 +1,706 @@
+
+/*======================================
+            Slider Starts
+=========================================*/
+
+.slider
+{
+    width: 100%;
+    height: 750px;
+    background-image: url(..//images/02.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+
+
+}
+
+.slider-overlay
+{
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0.76);
+    position: relative;
+}
+
+
+.slider-content
+{
+    position: absolute;
+    top: 37%;
+    width: 100%;
+}
+
+.icons .fa
+{
+    font-size: 35px;
+    margin-right: 7px;
+
+}
+
+
+.cta-div
+{
+    margin-top: 30px;
+
+}
+
+
+.btn1
+{
+    padding: 13px 18px;
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    border: 2px solid white;
+    border-top-left-radius: 15px;
+    transition: all 0.5s ease-in;
+    margin-right: -6px;
+
+}
+
+
+
+.btn1:hover
+{
+    text-decoration: none;
+    color: white;
+    background-color: deepskyblue;
+    border-color: deepskyblue;
+
+}
+
+
+.btn2
+{
+    padding: 13px 18px;
+    background-color: transparent;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    border: 2px solid white;
+    border-bottom-right-radius: 15px;
+    transition: all 0.5s ease-in;
+    margin-right:10px;
+}
+
+
+
+.btn2:hover
+{
+    text-decoration: none;
+    color: white;
+    background-color: orangered;
+    border-color: orangered;
+
+}
+
+.social-networks a.fa
+{
+    border: 1px solid white;
+    padding: 10px;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 25px;
+    margin-right: 2px;
+    transition: all 0.5s ease-in;
+
+}
+
+
+.social-networks a.fa:hover
+{
+    text-decoration: none;
+    background-color: deepskyblue;
+    color: white;
+    border: 1px solid deepskyblue;
+
+}
+
+
+.slider .text, .slider .typed-cursor
+{
+    display: inline;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+.slider .text1, .slider .typed-cursor
+{
+    display: inline;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+.slider .text2, .slider .typed-cursor
+{
+    display: inline;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+.primary
+{
+    color: deepskyblue;
+}
+
+.typed-cursor
+{
+  opacity: 1;
+  animation: blink 0.7s infinite;
+  -webkit-animation:blink 0.7s infinite;
+  -mox-animation:blink 0.7s infinite;
+
+
+}
+
+@keyframes blink
+{
+    0%
+    {
+        opacity: 1;
+    }
+
+
+    50%
+    {
+        opacity: 0;
+    }
+
+    100%
+    {
+        opacity: 1;
+    }
+
+
+
+}
+
+@-webkit-keyframes blink
+{
+    0%
+    {
+        opacity: 1;
+    }
+
+
+    50%
+    {
+        opacity: 0;
+    }
+
+    100%
+    {
+        opacity: 1;
+    }
+
+}
+
+@-moz-keyframes blink
+{
+    0%
+    {
+        opacity: 1;
+    }
+
+
+    50%
+    {
+        opacity: 0;
+    }
+
+    100%
+    {
+        opacity: 1;
+    }
+
+
+}
+
+/*=======================================
+            Slider Ends
+=========================================*/
+
+
+
+/*=======================================
+            Services styles
+=========================================*/
+
+.service-area
+{
+    margin-top: 30px;
+}
+
+.service-area p
+{
+   margin-bottom: -5px;
+}
+
+
+
+
+.service-wrap {
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+    padding: 25px 35px;
+    position: relative;
+    transition: all 0.5s ease 0s;
+    z-index: 9;
+    margin-top: 20px;
+
+}
+
+.service-wrap::before, .service-wrap::after {
+    content: "";
+    height: 300%;
+    position: absolute;
+    transform: rotate(45deg);
+    width: 200%;
+    z-index: -9;
+    transition: all 0.5s;
+    opacity: 0;
+    background: #515151;
+
+}
+
+.service-wrap::before{
+    top: -37px;
+    left: 100%;
+
+}
+
+.service-wrap:hover:before{
+    left: -27px;
+    opacity: 1;
+
+}
+
+
+.service-wrap::after{
+     right: 100%;
+     bottom: -37px;
+
+}
+
+.service-wrap:hover:after{
+     right: -27px;
+     opacity: 1;
+
+}
+
+.service-wrap:hover{
+     color: white;
+}
+
+.service-wrap:h3{
+     color: white;
+}
+
+
+.service-wrap:hover h3{
+     color: white;
+}
+
+
+.service-wrap:hover h3:after{
+     background-color: white;
+}
+
+.service-icon i{
+    font-size: 30px;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+
+}
+
+
+.service-wrap:hover .service-icon i{
+
+    transform:rotate(360deg);
+}
+
+.service-wrap h3
+{
+    font-size: 25px;
+    font-weight: 700;
+    padding-bottom: 15px;
+    position: relative;
+
+}
+
+.service-wrap p
+{
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+
+
+
+.stat
+{
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)),url(..//images/06.jpg);
+    background-position: center;
+    padding-top: 180px;
+
+    padding-bottom: 200px;
+    color: white;
+    background-attachment: fixed;
+    margin-top: 100px;
+
+    background-size: cover;
+    width: 100%;
+
+}
+
+
+.stat i
+{
+    font-size: 85px;
+}
+
+
+
+.stat-items h2
+{
+    font-weight: bolder;
+    font-size: 42px;
+    color: deepskyblue;
+}
+
+.stat p
+{
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: white;
+}
+
+
+/*=======================================
+        Counter stat style Ends
+=========================================*/
+
+
+/*=======================================
+        Contact area style starts
+=========================================*/
+
+.contact-area
+{
+    margin-top: 60px;
+}
+
+
+.form-control
+{
+    border-radius: 0px !important;
+    border: 1px solid #515151 !important;
+
+}
+
+
+.contact-form button.btn
+{
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 12px 43px;
+    border: 1px solid black;
+    border-radius: 0px;
+}
+
+.border-bottom-now
+{
+    width: 40px;
+    height: 2px;
+    background: black;
+    margin: 0 auto;
+}
+
+.contact-infos
+{
+    float: left;
+    width: 100%;
+    margin-top: 90px;
+    margin-bottom: -30px;
+    background: #515151;
+    padding-top: 35px;
+    padding-bottom: 35px;
+
+
+}
+
+.contact-infos .fa
+{
+    color: white;
+    font-size: 26px;
+    border: 1px solid white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 50px;
+
+}
+
+.contact-infos p
+{
+    color: white;
+    margin-top: 15px;
+
+}
+
+/*=======================================
+        Contact area style End
+=========================================*/
+
+.carousel-fade .carousel-inner .item {
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .item,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  opacity: 0;
+}
+.carousel-fade .carousel-inner .active,
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .next,
+.carousel-fade .carousel-inner .prev,
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+/*
+Fade content bs-carousel with hero headers
+Code snippet by maridlcrmn (Follow me on Twitter @maridlcrmn) for Bootsnipp.com
+Image credits: unsplash.com
+*/
+
+/********************************/
+/*       Fade Bs-carousel       */
+/********************************/
+.fade-carousel {
+    position: relative;
+    height: 50vh;
+}
+.fade-carousel .carousel-inner .item {
+    height: 50vh;
+}
+.fade-carousel .carousel-indicators > li {
+    margin: 0 2px;
+    background-color: #f39c12;
+    border-color: #f39c12;
+    opacity: .7;
+}
+.fade-carousel .carousel-indicators > li.active {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+}
+
+/********************************/
+/*          Hero Headers        */
+/********************************/
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+.hero h1 {
+    font-size: 6em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+
+.fade-carousel .carousel-inner .item .hero {
+    opacity: 0;
+    -webkit-transition: 2s all ease-in-out 5s;
+       -moz-transition: 2s all ease-in-out 5s;
+        -ms-transition: 2s all ease-in-out 5s;
+         -o-transition: 2s all ease-in-out 5s;
+            transition: 2s all ease-in-out 5s;
+}
+.fade-carousel .carousel-inner .item.active .hero {
+    opacity: 1;
+    -webkit-transition: 2s all ease-in-out 5s;
+       -moz-transition: 2s all ease-in-out 5s;
+        -ms-transition: 2s all ease-in-out 5s;
+         -o-transition: 2s all ease-in-out 5s;
+            transition: 2s all ease-in-out 5s;
+}
+
+/********************************/
+/*            Overlay           */
+/********************************/
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #080d15;
+    opacity: .6;
+}
+
+/********************************/
+/*          Custom Buttons      */
+/********************************/
+
+
+/********************************/
+/*       Slides backgrounds     */
+/********************************/
+.fade-carousel .slides .slide-1,
+.fade-carousel .slides .slide-2,
+.fade-carousel .slides .slide-3 {
+  height: 50vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.fade-carousel .slides .slide-1 {
+  background-image: url(..//images/08.jpg);
+}
+.fade-carousel .slides .slide-2 {
+  background-image: url(..//images/11.jpg);
+}
+.fade-carousel .slides .slide-3 {
+  background-image: url(..//images/12.jpg);
+}
+
+/********************************/
+/*          Media Queries       */
+/********************************/
+@media screen and (min-width: 980px){
+    .hero { width: 980px; }
+}
+@media screen and (max-width: 640px){
+    .hero h1 { font-size: 4em; }
+}
+
+/*///////////////////////////////////////////////////////*/
+/*=======================================
+            Work styles
+=========================================*/
+
+.work
+{
+    margin-top: 25px;
+}
+
+.row.no-gutters [class*=col-]
+{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+.img-wrapper
+{
+    overflow: hidden;
+}
+
+.img-wrapper img
+{
+   transition: transform 0.3s ease;
+   width: 100%;
+
+
+}
+
+.img-wrapper img:hover
+{
+    transform: scale(1.5);
+    cursor: zoom-in;
+}
+
+
+/*=======================================
+            Work style ends
+=========================================*/
+
+.space{
+  padding-top: 200px;
+}
+
+
+.footer
+{
+      background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)),url(..//images/01.jpg);
+    /* background-color: #515151; */
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    /* background-attachment: fixed; */
+    color: white;
+    position: fixed-bottom;
+
+}
+
+.social-icon a
+{
+    margin: 0 16px 20px 16px;
+    display: inline-block;
+
+}
+
+
+.footer .fa
+{
+    font-size: 25px;
+    color: deepskyblue;
+    width: 60px;
+    height: 60px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    /* background: white; */
+    line-height: 2;
+    /* border: 10px solid #515151; */
+    text-align: center;
+    transition: all 0.7s ease-in;
+
+
+}
+
+.social-icon a:hover .fa
+{
+
+    /* border: 5px solid white; */
+    transform: rotate(360deg);
+
+}
+.footerlogo{
+  color: deepskyblue;
+}
+.bordernow
+{
+    width: 30px;
+    border-bottom: 4px solid white;
+    margin: 0 auto;
+    margin-top: 20px;
+
+}

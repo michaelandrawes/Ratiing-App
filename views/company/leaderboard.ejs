@@ -1,0 +1,93 @@
+<%layout('layout2') %>
+
+<div id="wrapper">
+
+  <% include ../partials/sidebar %>
+
+            <section class="slider text-center" id="slider">
+
+              <div class="slider-overlay">
+                  <% include ../partials/navbar %>
+
+                    <div class="text1"></div>
+                  <div class="slider-content wow bounceInDown">
+                      <div class="icons">
+                          <i class="fa fa-apple"></i>
+                          <i class="fa fa-android"></i>
+                          <!-- <i class="fa fa-windows"></i> -->
+                      </div>
+
+                      <br>
+                      <form  action="/companies" method="GET" class="form-inline" class="wow bounceInDown">
+                        <div class="form-group">
+                          <input type="text" name="search" class="form-control" placeholder="Type Company Name..." style="padding:22px;padding-left:100px;padding-right:100px;margin:5px;">
+                          <!-- <input type="submit"  value="Search" class="btn btn-secondary"> -->
+                          <a href="#shops" class="btn btn-info"><button type="submit" class="btn btn-info">Search</button></a>
+
+                        </div>
+                      </form>
+
+
+                      <br><br>
+                      <div class="social-networks wow bounceInDown">
+                          <a href="" class="fa fa-facebook"></a>
+                          <a href="" class="fa fa-twitter"></a>
+                          <a href="" class="fa fa-apple"></a>
+                          <a href="" class="fa fa-android"></a>
+                          <!-- <a href="" class="fa fa-windows"></a> -->
+                          <!-- <a href="" class="fa fa-reddit"></a>
+                          <a href="" class="fa fa-linkedin"></a> -->
+                          <!-- <a href="" class="fa fa-cog"></a> -->
+                      </div>
+                  </div>
+              </div>
+          </section>
+<br><br><br><br>
+  <div id="page-content-wrapper">
+
+
+      <div class="container-fluid main_body">
+
+        <div class="ul_links">
+          <ul>
+            <li ><a  href="/home">Home</a></li> |
+            <li ><a  href="/companies">All Company</a></li> |
+            <li><a href="#">Leaderboard</a></li>
+          </ul>
+        </div>
+
+        <div class="bodyDiv">
+          <h4 style="">Leaderboard</h4>
+
+          <% arrayAverage=(arr)=>{
+            return _.reduce(arr,(num1,num2)=>{
+              return num1+num2;
+            },0)/(arr.length===0?1:arr.length);
+          } %>
+
+
+          <%for(var i=0;i<data.length;i++){ %>
+            <% var total=arrayAverage(data[i].ratingNumber)%>
+              <%# for sort the data %>
+            <% var index=_.indexOf(data,data[i]);%>
+
+          <div class="col-xs-12 col-md-6 col-lg-6 companyListDiv wow fadeInLeft">
+            <a href="/company-profile/<%=data[i]._id%>">
+              <img src="/uploads/<%=data[i].image%>" class="companyListItemLogo" >
+              <div class=" companyListItemInfo">
+                <h5 class=""><%=data[i].name%></h5>
+                <span class="">
+                  <i class="star" data-score="<%=total%>"></i><br>
+                   <%=data[i].ratingSum%> Total Stars
+                </span><br>
+                <h5>#<%=index + 1%></h5>
+              </div>
+            </a>
+          </div>
+          <% }%>
+        </div>
+      </div>
+        <% include ../partials/footer %>
+  </div>
+
+</div>

@@ -1,0 +1,154 @@
+<%layout('layout2') %>
+
+<div id="wrapper">
+
+  <% include ../partials/sidebar %>
+
+
+  <section class="slider text-center" id="slider">
+
+    <div class="slider-overlay">
+          <% include ../partials/navbar %>
+
+          <div class="text2"></div>
+        <div class="slider-content wow bounceInDown">
+            <div class="icons">
+                <i class="fa fa-apple"></i>
+                <i class="fa fa-android"></i>
+                <!-- <i class="fa fa-windows"></i> -->
+            </div>
+
+            <br>
+            <form  action="/companies" method="GET" class="form-inline" class="wow bounceInDown">
+              <div class="form-group">
+                <input type="text" name="search" class="form-control" placeholder="Type Company Name..." style="padding:22px;padding-left:100px;padding-right:100px;margin:5px;">
+                <!-- <input type="submit"  value="Search" class="btn btn-secondary"> -->
+                <a href="#shops" class="btn btn-info"><button type="submit" class="btn btn-info">Search</button></a>
+
+              </div>
+            </form>
+
+
+            <br><br>
+            <div class="social-networks wow bounceInDown">
+                <a href="" class="fa fa-facebook"></a>
+                <a href="" class="fa fa-twitter"></a>
+                <a href="" class="fa fa-apple"></a>
+                <a href="" class="fa fa-android"></a>
+                <!-- <a href="" class="fa fa-windows"></a> -->
+                <!-- <a href="" class="fa fa-reddit"></a>
+                <a href="" class="fa fa-linkedin"></a> -->
+                <!-- <a href="" class="fa fa-cog"></a> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<br><br>
+<div class="ul_links">
+  <ul>
+    <li ><a  href="/home">Home</a></li> |
+    <li ><a  href="/companies">All Company</a></li>
+
+  </ul>
+</div>
+<br><br>
+<div class="carousel fade-carousel slide carousel-fade" data-ride="carousel"
+data-interval="3000" id="bs-carousel">
+<!-- Overlay -->
+<!-- Indicators -->
+<ol class="carousel-indicators">
+<li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+<li data-target="#bs-carousel" data-slide-to="1"></li>
+<li data-target="#bs-carousel" data-slide-to="2"></li>
+</ol>
+<!-- Wrapper for slides -->
+<div class="carousel-inner">
+<div class="item slides active carousel-item">
+    <div class="slide-1">
+        <div class="overlay"></div>
+    </div>
+</div>
+<div class="item slides carousel-item">
+    <div class="slide-2">
+        <div class="overlay"></div>
+    </div>
+</div>
+<div class="item slides carousel-item">
+    <div class="slide-3">
+        <div class="overlay"></div>
+    </div>
+</div>
+<div class="hero">
+    <hgroup>
+         <h1>We are amazing</h1>
+         <h3>Get start your next awesome project</h3>
+    </hgroup>
+
+</div>
+</div>
+</div>
+
+  <div id="page-content-wrapper">
+
+
+      <div class="container-fluid main_body">
+
+        <!-- <form  action="/companies" method="GET" class="form-inline">
+          <div class="form-group">
+            <input type="text" name="search" class="form-control" placeholder="Company Search...">
+            <input type="submit"  value="Search" class="btn btn-primary">
+          </div>
+        </form> -->
+
+
+<form  action="/companies" method="post">
+
+
+        <div class="bodyDiv">
+          <h4 style="">Companies</h4>
+
+          <% arrayAverage=(arr)=>{
+            return _.reduce(arr,(num1,num2)=>{
+              return num1+num2;
+            },0)/(arr.length===0?1:arr.length);
+          } %>
+
+
+          <%for(var i=0;i<data.length;i++){ %>
+            <% var total=arrayAverage(data[i].ratingNumber)%>
+
+          <div class="col-xs-12 col-md-6 col-lg-6 companyListDiv wow fadeInLeft">
+            <a href="/company-profile/<%=data[i]._id%>" class="ank">
+              <img src="/uploads/<%=data[i].image%>" class="companyListItemLogo" >
+              <div class=" companyListItemInfo">
+                <h5 class=""><%=data[i].name%></h5>
+                <span class="">
+                  <i class="star" data-score="<%=total%>"></i>
+                  (<%=data[i].ratingNumber.length%>)
+                </span><br>
+                <i class="fa fa-bookmark "> <a href="/category/<%=data[i].sector%>"> <%=data[i].sector%></a></i><br>
+                <i class="fa fa-map-marker "> <%=data[i].city%>, <%=data[i].country%></i>
+              </div>
+            </a>
+            <br><br><br><br><br><br><br>
+            <%if(user.isAdmin==='true'){%>
+            <button type="submit" name="btnDelete" value="<%=data[i]._id%>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');" >Delete Post</button>
+            <%}%>
+          </div>
+
+          <% }%>
+        </div>
+</form>
+      </div>
+      <% include ../partials/footer %>
+  </div>
+</div>
+<script type="text/javascript">
+  $(".text2").typed({
+    strings:["<strong>have a look, </strong><strong class='primary'> <%=user.fullname%></strong>","<strong>here we</strong><strong class='primary'> go !.</strong>"],
+   typespeed:0,
+   loop:true
+
+ });
+</script>

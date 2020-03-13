@@ -1,0 +1,56 @@
+<%layout('layout') %>
+
+
+<div class="container">
+    <br><br>
+    <div class="text-center reg_msg wow bounceInDown">
+        <h1><a href="/">October360</a></h1>
+    </div>
+   <br><br>
+
+   <div class="text-center reg_msg wow swing">
+        <h2 class="fancy"><span>Reset Password</span></h2>
+   </div><br>
+
+    <div class="row signup">
+      <%if(hasErrors){ %>
+          <%for(var i=0;i< messages.length;i++){%>
+            <div class="alert alert-danger">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">
+                 &#10007;
+              </a>
+              <%=messages[i]%>
+            </div>
+          <%}%>
+      <% }%>
+
+      <%if(noErrors){ %>
+            <div class="alert alert-info">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">
+                 &#10007;
+              </a>
+              <%=success%>
+            </div>
+          <%}%>
+        <form method="POST" class="wow lightSpeedIn">
+
+          <div class="form-group input_group">
+              <input id="password" class="form-control" name="password" type="password" placeholder="PASSWORD" style="margin-bottom:20px;" autocomplete="on">
+          </div>
+
+            <div class="form-group input_group">
+                <input id="cpassword" class="form-control" name="cpassword" type="password" placeholder="CONFIRM PASSWORD" style="margin-bottom:20px;" autocomplete="on">
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" id="submit" value="Reset Password" class="form-control btn btn-primary" name="reset" style="">
+            </div>
+
+          </form>
+<div class="wow bounceInUp" >
+  <h4>Already reset password?<a href="/login">Login</a></h4>
+</div>
+    </div>
+</div>
+<% include ../partials/footer %>

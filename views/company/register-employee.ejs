@@ -1,0 +1,37 @@
+<%layout('layout2') %>
+
+<div id="wrapper">
+  <% include ../partials/sidebar %>
+
+  <div id="page-content-wrapper">
+    <% include ../partials/navbar %>
+    <div class="container-fluid main_body">
+
+      <div class="ul_links">
+        <ul>
+          <li ><a  href="/home">Home</a></li> |
+          <li ><a  href="/companies">Company</a></li>|
+          <li ><a  href="">Register Member</a></li>
+        </ul>
+      </div>
+      <div class="bodyDiv">
+        <h4 style="">Register Member</h4>
+        <div class="form-group">
+          <label for="">Company</label><br>
+          <label><%=data.name%></label>
+        </div>
+
+        <form  action="" method="post">
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" name="role" id="role"class="form-control" style="margin-bottom:20px;">
+          </div>
+          <div class="form-group">
+            <input type="submit" id="role" name="employeeRole" style=""class="btn btn-primart form-control" value="Register">
+          </div>
+        </form>
+      </div>
+    </div>
+    <% include ../partials/footer %>
+  </div>
+</div>

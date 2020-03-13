@@ -1,0 +1,38 @@
+<%layout('layout2') %>
+
+<div id="wrapper">
+
+    <div id="page-content-wrapper">
+      <% include ../partials/navbar %>
+      <div class="container-fluid main_body">
+
+        <div class="ul_links">
+          <ul>
+            <li ><a  href="/home">Home</a></li> |
+            <li ><a  href="/companies">Company</a></li>|
+            <li ><a  href="">messages</a></li>
+          </ul>
+        </div>
+        <div class="bodyDiv" >
+          <h4 style="">View all messages</h4>
+<form  action="/messages" method="post">
+
+
+          <%msg.forEach(function(val){%>
+            <div class="col-lg-8"style="border:2px solid black;margin:20px;">
+              <h2>Name: <%=val.name%></h2> <h3>Email: <%=val.email%></h3>
+
+              <span>Subject: <%=val.subject%></span>
+            <h5>Message: <%=val.message%></h5><br>
+            <%if(user.isAdmin==='true'){%>
+            <button type="submit" name="btnDelete" value="<%=val._id%>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');" >Delete Message</button>
+            <%}%><br><br>
+            </div>
+
+          <%});%>
+</form>
+        </div>
+      </div>
+
+    </div>
+</div>

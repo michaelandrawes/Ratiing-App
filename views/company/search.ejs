@@ -1,0 +1,29 @@
+<%layout('layout2') %>
+<div id="wrapper">
+    <% include ../partials/sidebar %>
+    <div id="page-content-wrapper">
+      <% include ../partials/navbar %>
+      <div class="container-fluid main_body">
+
+        <div class="ul_links">
+          <ul>
+            <li ><a  href="/home">Home</a></li> |
+            <li ><a  href="/companies">Company</a></li>|
+            <li ><a  href="">Find a Company</a></li>
+          </ul>
+        </div>
+        <div class="bodyDiv">
+          <h4 style="">Find a Company</h4>
+
+          <form  action="/companies" method="GET" >
+            <div class="form-group">
+              <input type="text" name="search" class="form-control" placeholder="Type Company Name..." style="margin-bottom:20px;">
+              <input type="submit"  value="Search" class="form-control btn btn-primary">
+            </div>
+          </form>
+
+        </div>
+      </div>
+      <% include ../partials/footer %>
+    </div>
+</div>
